@@ -11,6 +11,7 @@ export CROSS_COMPILE=$PARENT_DIR/aarch64-linux-android-4.9/bin/aarch64-linux-and
 export CC=$PARENT_DIR/clang-r383902-jopp/bin/clang
 export CLANG_TRIPLE=$PARENT_DIR/clang-r383902-jopp/bin/aarch64-linux-gnu-
 export ARCH=arm64
+KERNEL_MAKE_ENV="LOCALVERSION=-afaneh92"
 
 # Color
 ON_BLUE=`echo -e "\033[44m"`	# On Blue
@@ -77,8 +78,8 @@ build_kernel(){
   variant
   echo "${GREEN}***** Compiling kernel *****${STD}"
   [ ! -d "out" ] && mkdir out
-  make -j$(nproc) -C $(pwd) afaneh_${VARIANT}_defconfig
-  make -j$(nproc) -C $(pwd)
+  make -j$(nproc) -C $(pwd) $KERNEL_MAKE_ENV afaneh_${VARIANT}_defconfig
+  make -j$(nproc) -C $(pwd) $KERNEL_MAKE_ENV
 
   [ -e arch/arm64/boot/Image.gz ] && cp arch/arm64/boot/Image.gz $(pwd)/out/Image.gz
   if [ -e arch/arm64/boot/Image ]; then
