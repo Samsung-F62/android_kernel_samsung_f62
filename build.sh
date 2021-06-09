@@ -49,6 +49,9 @@ MAGISK(){
 F62(){	
 	make f62_defconfig O=out CC=clang
 	make -j$(nproc --all) O=out CC=clang
+    DTB_DIR=$(pwd)/arch/arm64/boot/dts
+    $(pwd)/tools/mkdtimg cfg_create $(pwd)/out/dtb.img dt.configs/exynos9825.cfg -d ${DTB_DIR}/exynos
+    $(pwd)/tools/mkdtimg cfg_create $(pwd)/out/dtbo.img dt.configs/${VARIANT}.cfg -d ${DTB_DIR}/samsung
 }
 
 CLEAN
