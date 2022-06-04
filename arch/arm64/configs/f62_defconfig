@@ -5521,7 +5521,7 @@ CONFIG_ICD_USE_TZDEV=y
 #
 # samsung Performace manager
 #
-CONFIG_KPERFMON=y
+# CONFIG_KPERFMON is not set
 
 #
 # Firmware Drivers
