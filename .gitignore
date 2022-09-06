@@ -228,3 +228,6 @@ firmware/tsp_imagis/ist40xx_a80_cmcs.bin.gen.S
 firmware/coreriver/tc305k_a50ser.fw.gen.S
 crypto/asymmetric_keys/x509_akid-asn1.h
 toolchain/
+scripts/rkp_cfp/tmp/vmlinux
+dtb.img
+lib/libdss.c
